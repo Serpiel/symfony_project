@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="mb-4">🛠️ Tableau de bord Administrateur</h1>
+    
+    <div class="row">
+        {# Carte Gestion des Événements #}
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Événements</div>
+                <div class="card-body">
+                    <h5 class="card-title">Gérer les événements</h5>
+                    <p class="card-text">Créer, modifier ou supprimer des événements.</p>
+                    {# On mettra le lien plus tard #}
+                    <a href="{{ path('app_event_index') }}" class="btn btn-light">Gérer</a>
+                </div>
+            </div>
+        </div>
+
+        {# Carte Gestion des Catégories #}
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-header">Catégories</div>
+                <div class="card-body">
+                    <h5 class="card-title">Gérer les catégories</h5>
+                    <p class="card-text">Ajouter ou éditer des catégories d'événements.</p>
+                    <a href="{{ path('app_category_index') }}" class="btn btn-light">Gérer</a>
+                </div>
+            </div>
+        </div>
+
+        {# Carte Gestion des Utilisateurs #}
+        <div class="col-md-4">
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-header">Utilisateurs</div>
+                <div class="card-body">
+                    <h5 class="card-title">Gérer les utilisateurs</h5>
+                    <p class="card-text">Voir les inscrits et modérer les comptes.</p>
+                    <a href="{{ path('app_user_index') }}" class="btn btn-light">Gérer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

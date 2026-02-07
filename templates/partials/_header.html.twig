@@ -1,0 +1,45 @@
+<nav>
+    <div class="container">
+        <a class="navbar-brand" href="/">Serpiel Showdown</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_home') }}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('app_home') }}">Événements</a>
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav ms-auto">
+                {# Si l'utilisateur est connecté #}
+                {% if app.user %}
+                    {# Lien Admin visible seulement pour les admins (Page 10) #}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li class="nav-item">
+                            <a class="nav-link text-warning" href="{{ path('admin_dashboard') }}">Administration</a>
+                        </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mon Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light btn-sm ms-2" href="{{ path('app_logout') }}">Déconnexion</a>
+                    </li>
+                {% else %}
+                    {# Si l'utilisateur n'est pas connecté #}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary btn-sm ms-2" href="{{ path('app_register') }}">Inscription</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,3 +1,139 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* --- GLOBALS --- */
+:root {
+    --metal-black: #0a0a0a;
+    --metal-dark: #1a1a1a;
+    --metal-grey: #2d2d2d;
+    --blood-red: #b90e0a;
+    --neon-red: #ff3333;
+    --text-main: #e0e0e0;
+}
+
 body {
-    background-color: skyblue;
+    background-color: var(--metal-black);
+    color: var(--text-main);
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to bottom, #000000, #141414); /* Dégradé sombre */
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand, .nav-link, .btn {
+    font-family: 'Oswald', sans-serif; /* Police style affiche */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    background-color: #000 !important;
+    border-bottom: 3px solid var(--blood-red);
+    box-shadow: 0 5px 15px rgba(185, 14, 10, 0.2);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--neon-red) !important;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.nav-link {
+    color: #fff !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--neon-red) !important;
+    text-shadow: 0 0 8px var(--blood-red);
+}
+
+/* --- CARDS (Les événements) --- */
+.card {
+    background-color: var(--metal-dark);
+    border: 1px solid var(--metal-grey);
+    border-radius: 0 !important; /* Pas d'arrondis ! */
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--blood-red);
+    box-shadow: 0 0 20px rgba(185, 14, 10, 0.3);
+}
+
+.card-header {
+    background-color: #000 !important;
+    border-bottom: 1px solid var(--blood-red);
+    color: var(--neon-red);
+}
+
+.card-title {
+    color: #fff;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #aaa;
+}
+
+.card-footer {
+    background-color: var(--metal-dark) !important;
+    border-top: 1px solid var(--metal-grey);
+}
+
+/* --- BADGES (Catégories) --- */
+.badge {
+    background-color: var(--metal-grey) !important;
+    border: 1px solid var(--text-main);
+    color: #fff;
+    border-radius: 0; /* Carré */
+}
+
+/* --- BOUTONS --- */
+.btn {
+    border-radius: 0 !important; /* Carré */
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.btn-primary, .btn-outline-primary {
+    background-color: var(--blood-red);
+    border-color: var(--blood-red);
+    color: #fff;
+}
+
+.btn-primary:hover, .btn-outline-primary:hover {
+    background-color: #8a0000;
+    border-color: #8a0000;
+    box-shadow: 0 0 15px var(--blood-red);
+}
+
+.btn-secondary, .btn-light {
+    background-color: var(--metal-grey);
+    border-color: var(--metal-grey);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #444;
+}
+
+/* --- ALERTS & TABLEAUX --- */
+.alert-info {
+    background-color: var(--metal-dark);
+    border-left: 5px solid var(--neon-red);
+    color: #fff;
+}
+
+table {
+    color: #fff !important;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #000 !important;
+    border-top: 3px solid var(--blood-red);
+    color: #666;
 }

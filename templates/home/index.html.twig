@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="text-center mb-5">
+        <h1 class="display-4">Bienvenue sur SERPIEL SHOWDOWN</h1>
+        <p class="lead">Découvrez les prochains événements à ne pas manquer.</p>
+    </div>
+
+    <div class="row">
+        {% for event in events %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    {# Image placeholder (optionnel, pour faire joli) #}
+                    <div class="card-header bg-primary text-white text-center py-4">
+                        <span class="h1">📅</span>
+                    </div>
+                    
+                    <div class="card-body">
+                        {# Badge Catégorie #}
+                        <span class="badge bg-secondary mb-2">{{ event.category.name }}</span>
+                        
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            {{ event.date|date('d/m/Y à H:i') }}
+                        </h6>
+                        
+                        <p class="card-text">
+                            {# On coupe la description si elle est trop longue (Filtre Twig) #}
+                            {{ event.description|slice(0, 100) }}...
+                        </p>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <a href="{{ path('app_event_detail', {'id': event.id}) }}" class="btn btn-outline-primary w-100">
+                            Voir les détails
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12 text-center">
+                <p>Aucun événement prévu pour le moment.</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
