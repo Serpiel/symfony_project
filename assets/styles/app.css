@@ -137,3 +137,32 @@ footer {
     border-top: 3px solid var(--blood-red);
     color: #666;
 }
+
+/* --- BOUTONS GROUPE TRI --- */
+.btn-group .btn {
+    border: 1px solid #000;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-left: -1px; /* Pour coller les bordures proprement */
+}
+
+/* Force la couleur Rouge pour le bouton ACTIF du tri */
+.btn-group .btn-primary {
+    background-color: var(--blood-red) !important;
+    border-color: var(--blood-red) !important;
+    color: #fff;
+    z-index: 1; /* Le met au dessus pour voir la bordure */
+}
+
+/* Force le Gris pour les boutons INACTIFS */
+.btn-group .btn-secondary {
+    background-color: var(--metal-grey) !important;
+    border-color: var(--metal-dark) !important;
+    color: #aaa;
+}
+
+.btn-group .btn-secondary:hover {
+    background-color: #444 !important;
+    color: #fff;
+}

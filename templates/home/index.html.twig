@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Accueil - SERPIEL SHOWDOWN{% endblock %}
 
 {% block body %}
     <div class="text-center mb-5">
@@ -8,13 +8,39 @@
         <p class="lead">Découvrez les prochains événements à ne pas manquer.</p>
     </div>
 
+    {# --- DÉBUT : BARRE DE TRI --- #}
+    <div class="d-flex justify-content-center mb-5">
+        <div class="btn-group" role="group">
+            {# Label fixe #}
+            <span class="btn btn-dark disabled border-end-0" style="opacity: 1; color: #fff; font-weight: bold;">TRIER PAR :</span>
+            
+            {# Bouton : Date Croissante (Par défaut) #}
+            <a href="{{ path('app_home', {'sort': 'date_asc'}) }}" 
+               class="btn {{ currentSort == 'date_asc' ? 'btn-primary' : 'btn-secondary' }}">
+               📅 Prochainement
+            </a>
+            
+            {# Bouton : Date Décroissante #}
+            <a href="{{ path('app_home', {'sort': 'date_desc'}) }}" 
+               class="btn {{ currentSort == 'date_desc' ? 'btn-primary' : 'btn-secondary' }}">
+               ⏳ Plus loin
+            </a>
+            
+            {# Bouton : Alphabétique #}
+            <a href="{{ path('app_home', {'sort': 'name_asc'}) }}" 
+               class="btn {{ currentSort == 'name_asc' ? 'btn-primary' : 'btn-secondary' }}">
+               🅰️ A - Z
+            </a>
+        </div>
+    </div>
+    {# --- FIN : BARRE DE TRI --- #}
+
     <div class="row">
         {% for event in events %}
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
-                    {# Image placeholder (optionnel, pour faire joli) #}
                     <div class="card-header bg-primary text-white text-center py-4">
-                        <span class="h1">📅</span>
+                        <span class="h1">🤘</span>
                     </div>
                     
                     <div class="card-body">
